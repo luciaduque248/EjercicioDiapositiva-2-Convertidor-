@@ -1,0 +1,42 @@
+|convertidor
+entrada[0] => Mux0.IN134
+entrada[0] => Mux1.IN134
+entrada[0] => Mux2.IN134
+entrada[1] => Mux0.IN133
+entrada[1] => Mux1.IN133
+entrada[1] => Mux2.IN133
+entrada[1] => Equal0.IN4
+entrada[2] => Mux0.IN132
+entrada[2] => Mux1.IN132
+entrada[2] => Mux2.IN132
+entrada[2] => Equal0.IN3
+entrada[3] => Mux0.IN131
+entrada[3] => Mux1.IN131
+entrada[3] => Mux2.IN131
+entrada[3] => Equal0.IN2
+entrada[4] => Mux0.IN130
+entrada[4] => Mux1.IN130
+entrada[4] => Mux2.IN130
+entrada[4] => Equal0.IN1
+entrada[5] => Mux0.IN129
+entrada[5] => Mux1.IN129
+entrada[5] => Mux2.IN129
+entrada[5] => Equal0.IN0
+entrada[6] => Mux0.IN128
+entrada[6] => Mux1.IN128
+entrada[6] => Mux2.IN128
+orden_dia[0] << Mux2.DB_MAX_OUTPUT_PORT_TYPE
+orden_dia[1] << Mux1.DB_MAX_OUTPUT_PORT_TYPE
+orden_dia[2] << Mux0.DB_MAX_OUTPUT_PORT_TYPE
+orden_dia[3] << <GND>
+es_laborable << Equal0.DB_MAX_OUTPUT_PORT_TYPE
+an => ~NO_FANOUT~
+segmentos[0] << <GND>
+segmentos[1] << <GND>
+segmentos[2] << <GND>
+segmentos[3] << <GND>
+segmentos[4] << <GND>
+segmentos[5] << <GND>
+segmentos[6] << <GND>
+
+

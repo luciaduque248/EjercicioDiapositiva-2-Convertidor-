@@ -1,0 +1,38 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity convertidor is
+    Port ( a, b, c, d, e, f, g : in  STD_LOGIC;
+           bcd_output : out  STD_LOGIC_VECTOR (3 downto 0);
+           festivo : out  STD_LOGIC);
+end convertidor;
+
+architecture Behavioral of Weekday_Converter is
+    signal day_in : STD_LOGIC_VECTOR (6 downto 0);
+    signal day_out : STD_LOGIC_VECTOR (2 downto 0);
+    signal seg_out : STD_LOGIC_VECTOR (6 downto 0);
+begin
+    day_in <= a & b & c & d & e & f & g;
+    day_out <= conv_std_logic_vector(to_integer(unsigned(day_in)), 3);
+
+    bcd_output <= day_out;
+
+    -- Define festivo as 1 if day is Saturday or Sunday
+    festivo <= '1' when day_out = "110" or day_out = "111" else '0';
+
+    -- 7 segment display output
+    seg_out <= "1111110" when day_out = "000" else
+              "0110000" when day_out = "001" else
+              "1101101" when day_out = "010" else
+              "1111001" when day_out = "011" else
+              "0110011" when day_out = "100" else
+              "1011011" when day_out = "101" else
+              "1011111" when day_out = "110" else
+              "1110000" when day_out = "111" else
+              "0000000";
+
+    -- Connect 7 segment display output to the decoder
+    -- (not included in this code)
+end Behavioral;
